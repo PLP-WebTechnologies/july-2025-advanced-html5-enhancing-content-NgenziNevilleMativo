@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML5 Content and Forms Demo</title>
+  <style>
+    :root { --bg:#0b0c10; --fg:#222; --ink:#0b0c10; --text:#1f2937; --muted:#6b7280; --brand:#2563eb; --paper:#ffffff; }
+    html { box-sizing:border-box; }
+    *, *::before, *::after { box-sizing:inherit; }
+    body { margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:#111827; background:#f3f4f6; line-height:1.5; }
+    header, main, footer { max-width:1000px; margin:auto; padding:1rem; }
+    header { padding-top:2rem; }
+    .wrap { background:#ffffff; border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; }
+    h1, h2, h3 { margin:0 0 .5rem; }
+    h1 { font-size:1.875rem; }
+    h2 { margin-top:1.25rem; font-size:1.25rem; }
+    p { margin:.5rem 0; color:#374151; }
+    .grid { display:grid; gap:1rem; grid-template-columns:1fr; }
+    @media (min-width: 860px) { .grid { grid-template-columns:1fr 1fr; } }
+
+    /* Media section */
+    figure { margin:0; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; background:#fafafa; }
+    figure img, figure video { display:block; width:100%; height:auto; }
+    figcaption { padding:.5rem .75rem; font-size:.9rem; color:#4b5563; border-top:1px solid #e5e7eb; background:#fff; }
+    audio { width:100%; margin-top:.5rem; }
+
+    /* Lists */
+    .lists { display:grid; gap:1rem; grid-template-columns:1fr; }
+    @media (min-width: 700px) { .lists { grid-template-columns:repeat(3, 1fr); } }
+    .card { border:1px solid #e5e7eb; border-radius:10px; padding:1rem; background:#fff; }
+
+    /* Table */
+    table { width:100%; border-collapse:collapse; background:#fff; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; }
+    caption { text-align:left; padding: .75rem; font-weight:600; background:#f9fafb; }
+    thead th { background:#f3f4f6; }
+    th, td { padding:.75rem; border-top:1px solid #e5e7eb; text-align:left; font-variant-numeric:tabular-nums; }
+    th[scope="col"] { color:#374151; font-weight:600; }
+    tfoot td { background:#f9fafb; font-weight:600; }
+
+    /* Form */
+    form { display:grid; gap:1rem; margin-top:1rem; }
+    fieldset { border:1px solid #e5e7eb; border-radius:10px; padding:1rem; background:#ffffff; }
+    legend { font-weight:700; padding:0 .25rem; }
+    .row { display:grid; gap:.75rem; grid-template-columns:1fr; }
+    @media (min-width: 780px) { .row.two { grid-template-columns:repeat(2, 1fr); } .row.three { grid-template-columns:repeat(3, 1fr); } }
+    label { display:block; font-weight:600; font-size:.95rem; margin-bottom:.25rem; }
+    input, select, textarea { width:100%; padding:.625rem .7rem; border:1px solid #d1d5db; border-radius:8px; font:inherit; color:#111827; background:#fff; }
+    input:focus, select:focus, textarea:focus { outline:3px solid rgba(37,99,235,.25); border-color:#2563eb; }
+    .help { font-size:.85rem; color:#6b7280; margin-top:.25rem; }
+    .inline { display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .inline label { font-weight:500; margin:0; }
+    .submit { display:flex; gap:.75rem; }
+    button { padding:.75rem 1rem; border-radius:10px; border:1px solid transparent; background:#2563eb; color:#fff; font-weight:700; cursor:pointer; }
+    button.outline { background:#fff; color:#111827; border-color:#d1d5db; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Enhanced HTML5 Content and Forms</h1>
+      <p>This single page shows lists, a semantic table, and embedded media. It also includes a complete HTML5 form with labels, fieldsets, and native validation.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Media section -->
+    <section aria-labelledby="media-title" class="wrap" id="media">
+      <h2 id="media-title">Media</h2>
+      <div class="grid">
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/640px-Cat03.jpg" alt="A gray cat sitting on a wooden floor">
+          <figcaption>Example image with alt text and caption.</figcaption>
+        </figure>
+        <figure>
+          <video controls preload="metadata" poster="https://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_thumbnail_vlc.png">
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            Your browser does not support the video element.
+          </video>
+          <figcaption>Video using the HTML5 video element.</figcaption>
+        </figure>
+      </div>
+      <audio controls>
+        <source src="https://upload.wikimedia.org/wikipedia/commons/4/45/ACDC_-_Back_In_Black_%28sample%29.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+
+    <!-- Lists section -->
+    <section aria-labelledby="lists-title" class="wrap" id="lists">
+      <h2 id="lists-title">Lists</h2>
+      <div class="lists">
+        <div class="card">
+          <h3>Unordered list</h3>
+          <ul>
+            <li>Accessible markup</li>
+            <li>Responsive layout</li>
+            <li>Clear labeling</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Ordered list</h3>
+          <ol>
+            <li>Collect user data</li>
+            <li>Validate fields</li>
+            <li>Submit the form</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Description list</h3>
+          <dl>
+            <dt>ARIA</dt>
+            <dd>Attributes that improve accessibility.</dd>
+            <dt>Autocomplete</dt>
+            <dd>Hints the browser uses to fill inputs.</dd>
+            <dt>Pattern</dt>
+            <dd>Regular expression for inline validation.</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table section -->
+    <section aria-labelledby="table-title" class="wrap" id="table">
+      <h2 id="table-title">Table</h2>
+      <table>
+        <caption>Sample pricing table</caption>
+        <thead>
+          <tr>
+            <th scope="col">Plan</th>
+            <th scope="col">Monthly</th>
+            <th scope="col">Storage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Basic</th>
+            <td>$9</td>
+            <td>10 GB</td>
+          </tr>
+          <tr>
+            <th scope="row">Pro</th>
+            <td>$19</td>
+            <td>100 GB</td>
+          </tr>
+          <tr>
+            <th scope="row">Business</th>
+            <td>$49</td>
+            <td>1 TB</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Prices shown for example only.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- Form section -->
+    <section aria-labelledby="form-title" class="wrap" id="form">
+      <h2 id="form-title">Registration form</h2>
+      <p>All validation uses native HTML5 features. No JavaScript.</p>
+
+      <form action="#" method="post" autocomplete="on">
+        <!-- Account -->
+        <fieldset>
+          <legend>Account</legend>
+          <div class="row two">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" inputmode="email">
+              <p class="help">Must be a valid email address.</p>
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" placeholder="Minimum 8 characters" minlength="8" required autocomplete="new-password">
+              <p class="help">At least 8 characters.</p>
+            </div>
+          </div>
+          <div class="row two">
+            <div>
+              <label for="username">Username</label>
+              <input id="username" name="username" type="text" placeholder="username" required pattern="^[a-zA-Z0-9_]{4,16}$" title="4 to 16 letters, numbers, or underscore" autocomplete="username">
+            </div>
+            <div>
+              <label for="plan">Choose plan</label>
+              <select id="plan" name="plan" required>
+                <option value="" selected disabled>Select a plan</option>
+                <option value="basic">Basic</option>
+                <option value="pro">Pro</option>
+                <option value="business">Business</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Personal info -->
+        <fieldset>
+          <legend>Personal information</legend>
+          <div class="row three">
+            <div>
+              <label for="first">First name</label>
+              <input id="first" name="first" type="text" placeholder="First name" required autocomplete="given-name">
+            </div>
+            <div>
+              <label for="last">Last name</label>
+              <input id="last" name="last" type="text" placeholder="Last name" required autocomplete="family-name">
+            </div>
+            <div>
+              <label for="dob">Date of birth</label>
+              <input id="dob" name="dob" type="date" required>
+            </div>
+          </div>
+          <div class="row two">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="555-123-4567" pattern="^\d{3}-\d{3}-\d{4}$" title="Use 999-999-9999 format" autocomplete="tel" inputmode="numeric">
+            </div>
+            <div>
+              <label for="website">Website</label>
+              <input id="website" name="website" type="url" placeholder="https://example.com" autocomplete="url">
+            </div>
+          </div>
+          <div class="row two">
+            <div>
+              <label for="color">Favorite color</label>
+              <input id="color" name="color" type="color" value="#2563eb">
+            </div>
+            <div>
+              <label for="avatar">Profile photo</label>
+              <input id="avatar" name="avatar" type="file" accept="image/*">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Address -->
+        <fieldset>
+          <legend>Address</legend>
+          <div class="row two">
+            <div>
+              <label for="street">Street address</label>
+              <input id="street" name="street" type="text" placeholder="123 Main St" required autocomplete="address-line1">
+            </div>
+            <div>
+              <label for="unit">Unit</label>
+              <input id="unit" name="unit" type="text" placeholder="Apt 4B" autocomplete="address-line2">
+            </div>
+          </div>
+          <div class="row three">
+            <div>
+              <label for="city">City</label>
+              <input id="city" name="city" type="text" placeholder="City" required autocomplete="address-level2">
+            </div>
+            <div>
+              <label for="state">State</label>
+              <input id="state" name="state" type="text" placeholder="NY" required pattern="^[A-Z]{2}$" title="Two uppercase letters" autocomplete="address-level1" maxlength="2">
+            </div>
+            <div>
+              <label for="zip">ZIP</label>
+              <input id="zip" name="zip" type="text" placeholder="10001" required pattern="^\d{5}(?:-\d{4})?$" title="Five digits or ZIP+4" autocomplete="postal-code" inputmode="numeric">
+            </div>
+          </div>
+          <div>
+            <label for="country">Country</label>
+            <input id="country" name="country" type="text" list="country-list" placeholder="United States" required autocomplete="country-name">
+            <datalist id="country-list">
+              <option value="United States"></option>
+              <option value="Canada"></option>
+              <option value="Mexico"></option>
+            </datalist>
+          </div>
+        </fieldset>
+
+        <!-- Preferences -->
+        <fieldset>
+          <legend>Preferences</legend>
+          <div class="row two">
+            <div>
+              <label for="range">Newsletter frequency</label>
+              <input id="range" name="frequency" type="range" min="0" max="10" step="1" value="5">
+              <p class="help">0 is rare, 10 is frequent.</p>
+            </div>
+            <div>
+              <label for="timezone">Time zone</label>
+              <select id="timezone" name="timezone" autocomplete="off">
+                <option value="America/New_York">America New York</option>
+                <option value="America/Chicago">America Chicago</option>
+                <option value="America/Denver">America Denver</option>
+                <option value="America/Los_Angeles">America Los Angeles</option>
+              </select>
+            </div>
+          </div>
+          <div class="inline" role="group" aria-labelledby="contact-method-label">
+            <span id="contact-method-label" class="help">Preferred contact</span>
+            <label><input type="radio" name="contact" value="email" required> Email</label>
+            <label><input type="radio" name="contact" value="phone"> Phone</label>
+            <label><input type="radio" name="contact" value="sms"> SMS</label>
+          </div>
+          <div class="inline">
+            <label><input type="checkbox" name="tos" required> I agree to the Terms</label>
+            <label><input type="checkbox" name="updates" checked> Send product updates</label>
+          </div>
+        </fieldset>
+
+        <!-- Payment example -->
+        <fieldset>
+          <legend>Payment</legend>
+          <div class="row three">
+            <div>
+              <label for="card">Card number</label>
+              <input id="card" name="card" type="text" inputmode="numeric" placeholder="4111 1111 1111 1111" pattern="^(\d{4} \d{4} \d{4} \d{4}|\d{16})$" title="Enter 16 digits, with or without spaces" autocomplete="cc-number" required>
+            </div>
+            <div>
+              <label for="exp">Expiry</label>
+              <input id="exp" name="exp" type="month" required autocomplete="cc-exp">
+            </div>
+            <div>
+              <label for="cvv">CVV</label>
+              <input id="cvv" name="cvv" type="text" inputmode="numeric" pattern="^\d{3,4}$" title="3 or 4 digits" placeholder="123" autocomplete="cc-csc" required>
+            </div>
+          </div>
+          <div class="row two">
+            <div>
+              <label for="nameoncard">Name on card</label>
+              <input id="nameoncard" name="nameoncard" type="text" placeholder="Full name" required autocomplete="cc-name">
+            </div>
+            <div>
+              <label for="amount">Amount USD</label>
+              <input id="amount" name="amount" type="number" min="1" max="10000" step="1" placeholder="100" required>
+            </div>
+          </div>
+          <div>
+            <label for="ref">Reference</label>
+            <input id="ref" name="ref" type="text" value="WEB-ENROLL-2025" readonly>
+            <p class="help">Read only value included with submission.</p>
+          </div>
+        </fieldset>
+
+        <!-- Notes -->
+        <fieldset>
+          <legend>Notes</legend>
+          <label for="notes">Comments</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="Add any extra details"></textarea>
+        </fieldset>
+
+        <div class="submit">
+          <button type="submit">Submit</button>
+          <button type="reset" class="outline">Reset</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p class="wrap">Sample project for HTML5 content and forms.</p>
+  </footer>
+</body>
+</html>
